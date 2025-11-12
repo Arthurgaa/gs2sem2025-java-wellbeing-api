@@ -1,4 +1,4 @@
-# GS 2025 — Wellbeing API (Back + Front)
+# GS 2025 — Wellbeing API
 
 Plataforma full-stack (Java + Spring Boot no backend e React + Vite no frontend) para cadastro de Pacientes e Registros Diários (humor, ansiedade, sono) com validações, tratamento de exceções, semente inicial de dados (seeds) e H2 em memória.
 
