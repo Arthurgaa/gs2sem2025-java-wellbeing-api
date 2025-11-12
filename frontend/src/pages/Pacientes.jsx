@@ -9,7 +9,7 @@ export default function Pacientes() {
   const [editId, setEditId] = useState(null)
 
   const load = async () => {
-    const { data } = await api.get('/pacientes')
+    const { data } = await api.get('pacientes')
     setList(data)
   }
 
@@ -19,9 +19,9 @@ export default function Pacientes() {
     e.preventDefault()
     try {
       if(editId){
-        await api.put(`/pacientes/${editId}`, form)
+        await api.put(`pacientes/${editId}`, form)
       } else {
-        await api.post('/pacientes', form)
+        await api.post('pacientes', form)
       }
       setForm({ nome:'', email:'', dataNascimento:'' })
       setEditId(null)
@@ -33,7 +33,7 @@ export default function Pacientes() {
 
   const delItem = async (id) => {
     if(!confirm('Excluir paciente?')) return
-    await api.delete(`/pacientes/${id}`)
+    await api.delete(`pacientes/${id}`)
     load()
   }
 

@@ -12,8 +12,8 @@ export default function Registros(){
   const [editId, setEditId] = useState(null)
 
   const load = async ()=>{
-    const a = await api.get('/registros-diarios'); setList(a.data)
-    const b = await api.get('/pacientes'); setPacientes(b.data)
+    const a = await api.get('registros-diarios'); setList(a.data)
+    const b = await api.get('pacientes'); setPacientes(b.data)
   }
 
   useEffect(()=>{ load() },[])
@@ -22,9 +22,9 @@ export default function Registros(){
     e.preventDefault()
     try{
       if(editId){
-        await api.put(`/registros-diarios/${editId}`, form)
+        await api.put(`registros-diarios/${editId}`, form)
       } else {
-        await api.post('/registros-diarios', form)
+        await api.post('registros-diarios', form)
       }
       setForm({ dataRegistro:'', nivelHumor:3, nivelAnsiedade:5, horasSono:7, pacienteId:'' })
       setEditId(null)
@@ -36,7 +36,7 @@ export default function Registros(){
 
   const delItem = async (id)=>{
     if(!confirm('Excluir registro?')) return
-    await api.delete(`/registros-diarios/${id}`)
+    await api.delete(`registros-diarios/${id}`)
     load()
   }
 
